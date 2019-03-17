@@ -4,21 +4,31 @@
 #
 Name     : R-zeallot
 Version  : 0.1.0
-Release  : 4
+Release  : 5
 URL      : https://cran.r-project.org/src/contrib/zeallot_0.1.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/zeallot_0.1.0.tar.gz
 Summary  : Multiple, Unpacking, and Destructuring Assignment
 Group    : Development/Tools
 License  : MIT
-Requires: R-rlang
+Requires: R-cli
+Requires: R-markdown
+Requires: R-purrr
+Requires: R-withr
+BuildRequires : R-cli
+BuildRequires : R-markdown
+BuildRequires : R-purrr
 BuildRequires : R-rlang
+BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
-unpacking, and destructuring assignment in R. The 
-    operator unpacks the right-hand side of an assignment
-    into multiple values and assigns these values to 
-    variables on the left-hand side of the assignment.
+# zeallot
+Variable assignment with zeal!
+[travis]: https://travis-ci.org/nteetor/zeallot.svg?branch=master "shake and bake"
+[appveyor]: https://ci.appveyor.com/api/projects/status/github/nteetor/zeallot?branch=master&svg=true "frappe!"
+[coverage]: https://codecov.io/gh/nteetor/zeallot/branch/master/graph/badge.svg "deep fat fry"
+[cran]: https://www.r-pkg.org/badges/version/zeallot "green means go!"
+[downloads]: https://cranlogs.r-pkg.org/badges/last-month/zeallot "[====] 100%"
 
 %prep
 %setup -q -c -n zeallot
@@ -28,10 +38,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541773705
+export SOURCE_DATE_EPOCH=1552836565
 
 %install
-export SOURCE_DATE_EPOCH=1541773705
+export SOURCE_DATE_EPOCH=1552836565
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -67,8 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library zeallot|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  zeallot || :
 
 
 %files
@@ -99,3 +108,10 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/zeallot/help/zeallot.rdx
 /usr/lib64/R/library/zeallot/html/00Index.html
 /usr/lib64/R/library/zeallot/html/R.css
+/usr/lib64/R/library/zeallot/tests/testthat.R
+/usr/lib64/R/library/zeallot/tests/testthat/test-collect.R
+/usr/lib64/R/library/zeallot/tests/testthat/test-destructure.R
+/usr/lib64/R/library/zeallot/tests/testthat/test-operator.R
+/usr/lib64/R/library/zeallot/tests/testthat/test-pair-off.R
+/usr/lib64/R/library/zeallot/tests/testthat/test-pipe.R
+/usr/lib64/R/library/zeallot/tests/testthat/test-utils.R
