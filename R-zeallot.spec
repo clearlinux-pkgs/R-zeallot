@@ -4,16 +4,12 @@
 #
 Name     : R-zeallot
 Version  : 0.1.0
-Release  : 6
+Release  : 7
 URL      : https://cran.r-project.org/src/contrib/zeallot_0.1.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/zeallot_0.1.0.tar.gz
 Summary  : Multiple, Unpacking, and Destructuring Assignment
 Group    : Development/Tools
 License  : MIT
-Requires: R-cli
-Requires: R-markdown
-Requires: R-purrr
-Requires: R-withr
 BuildRequires : R-cli
 BuildRequires : R-markdown
 BuildRequires : R-purrr
@@ -38,10 +34,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552836565
+export SOURCE_DATE_EPOCH=1552915717
 
 %install
-export SOURCE_DATE_EPOCH=1552836565
+export SOURCE_DATE_EPOCH=1552915717
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
