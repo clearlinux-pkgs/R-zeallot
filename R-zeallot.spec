@@ -4,45 +4,38 @@
 #
 Name     : R-zeallot
 Version  : 0.1.0
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/zeallot_0.1.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/zeallot_0.1.0.tar.gz
 Summary  : Multiple, Unpacking, and Destructuring Assignment
 Group    : Development/Tools
 License  : MIT
-BuildRequires : R-cli
-BuildRequires : R-markdown
-BuildRequires : R-purrr
-BuildRequires : R-rlang
-BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
-# zeallot
-Variable assignment with zeal!
-[travis]: https://travis-ci.org/nteetor/zeallot.svg?branch=master "shake and bake"
-[appveyor]: https://ci.appveyor.com/api/projects/status/github/nteetor/zeallot?branch=master&svg=true "frappe!"
-[coverage]: https://codecov.io/gh/nteetor/zeallot/branch/master/graph/badge.svg "deep fat fry"
-[cran]: https://www.r-pkg.org/badges/version/zeallot "green means go!"
-[downloads]: https://cranlogs.r-pkg.org/badges/last-month/zeallot "[====] 100%"
+unpacking, and destructuring assignment in R. The 
+    operator unpacks the right-hand side of an assignment
+    into multiple values and assigns these values to 
+    variables on the left-hand side of the assignment.
 
 %prep
 %setup -q -c -n zeallot
+cd %{_builddir}/zeallot
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552915717
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1589401894
 
 %install
-export SOURCE_DATE_EPOCH=1552915717
+export SOURCE_DATE_EPOCH=1589401894
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -68,12 +61,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  zeallot || :
+R CMD check --no-manual --no-examples --no-codoc zeallot || :
 
 
 %files
