@@ -4,7 +4,7 @@
 #
 Name     : R-zeallot
 Version  : 0.1.0
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/zeallot_0.1.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/zeallot_0.1.0.tar.gz
 Summary  : Multiple, Unpacking, and Destructuring Assignment
@@ -27,10 +27,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589401894
+export SOURCE_DATE_EPOCH=1589530498
 
 %install
-export SOURCE_DATE_EPOCH=1589401894
+export SOURCE_DATE_EPOCH=1589530498
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
