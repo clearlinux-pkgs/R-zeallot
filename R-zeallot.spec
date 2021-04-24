@@ -4,7 +4,7 @@
 #
 Name     : R-zeallot
 Version  : 0.1.0
-Release  : 17
+Release  : 18
 URL      : https://cran.r-project.org/src/contrib/zeallot_0.1.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/zeallot_0.1.0.tar.gz
 Summary  : Multiple, Unpacking, and Destructuring Assignment
